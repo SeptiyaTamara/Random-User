@@ -4,7 +4,8 @@ import Home from "./Home";
 import Male from "./Male";
 import Female from "./Female";
 import Nationality from "./Nationality";
- 
+import Password from "./Password";
+
 class Main extends Component {
   render() {
     return (
@@ -16,6 +17,7 @@ class Main extends Component {
 			<li><NavLink exact to="/Male">Male</NavLink></li>
 			<li><NavLink exact to="/Female">Female</NavLink></li>
       <li><NavLink exact to="/Nationality">Nationality</NavLink></li>
+      <li><NavLink exact to="/Password">Password</NavLink></li>
  
           </ul>
           <div className="content">
@@ -23,6 +25,7 @@ class Main extends Component {
 			<Route exact path="/Male" component={Male}/>
 			<Route exact path="/Female" component={Female}/>
       <Route exact path="/Nationality" component={Nationality}/>
+      <Route exact path="/Password" component={Password}/>
           </div>
         </div>
         </HashRouter>

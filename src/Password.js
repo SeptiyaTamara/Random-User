@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Male extends Component {
+class Password extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,14 +9,16 @@ class Male extends Component {
   }
 
   componentDidMount() {
-    fetch("https://randomuser.me/api/?gender=male&results=6")
+    fetch("https://randomuser.me/api/?password=CHARSETS,MAX_LENGTH")
     .then(res => res.json())
     .then(parsedJSON => parsedJSON.results.map(data => (
       {
         id: `${data.id.name}`,
         firstName: `${data.name.first}`,
         lastName: `${data.name.last}`,
-        location: `${data.location.state}, ${data.nat}`,
+        email: `${data.email}`,
+        username: `${data.login.username}`,
+        password: `${data.login.password}`,
         thumbnail: `${data.picture.large}`,
       }
     )))
@@ -33,13 +35,15 @@ class Male extends Component {
       <div className="boxWhite">
         {
           items.length > 0 ? items.map(item => {
-            const {id, firstName, lastName, location, thumbnail} = item;
+            const {id, firstName, lastName, email, thumbnail, username,password} = item;
             return (
               <div key={id} className="bgCircle">
                 <center><img src={thumbnail} alt={firstName} className="circle"/> </center><br />
                 <div className="ctr">
-                  {firstName} {lastName}<br />
-                  {location}
+                {firstName} {lastName}<br />
+                  {email}<br/>
+                  {username}<br/>
+                  {password}
                 </div>
 
               </div>
@@ -51,4 +55,4 @@ class Male extends Component {
   }
 }
 
-export default Male;
+export default Password;
